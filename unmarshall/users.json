@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name": "Vlad",
+      "type": "Admin",
+      "age": 24,
+      "social": {
+        "vkontakte": "https://vk.com/id=",
+        "facebook": "https://fb.com/id="
+      }
+    },
+    {
+      "name": "Sonya",
+      "type": "Regular",
+      "age": 20,
+      "social": {
+        "vkontakte": "https://vk.com/id=",
+        "facebook": "https://fb.com/id="
+      }
+    }
+  ]
+}
