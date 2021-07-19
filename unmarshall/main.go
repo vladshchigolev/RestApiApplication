@@ -8,11 +8,15 @@ import (
 	"os"
 )
 
-func PrintUser(u *User) {
+func PrintUser(u User) {
 	fmt.Printf("Name: %s\n", u.Name)
 	fmt.Printf("Type: %s\n", u.Type)
 	fmt.Printf("Age: %d\n", u.Age)
 	fmt.Printf("vk: %s\n Facebook: %s\n", u.Social.Vkontakte, u.Social.Facebook)
+}
+
+func changeUserAge(u *User, age uint8) {
+	u.Age = age
 }
 
 var myStruct struct {
@@ -27,7 +31,7 @@ type Users struct {
 type User struct {
 	Name   string `json:"name"`
 	Type   string `json:"type"`
-	Age    int    `json:"age"`
+	Age    uint8  `json:"age"`
 	Social Social `json:"social"` // Типом значения поля "Social" является тип "Social", по сути это поле - структура в структуре
 }
 
@@ -59,7 +63,8 @@ func main() {
 	fmt.Println(users)
 	//fmt.Println("In myUser:", myUser, reflect.TypeOf(myUser))
 	//PrintUser()
+	changeUserAge(&users.Users[0], 23)
 	for _, user := range users.Users {
-		PrintUser(&user)
+		PrintUser(user)
 	}
 }
