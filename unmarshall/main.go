@@ -8,9 +8,16 @@ import (
 	"os"
 )
 
+func PrintUser(u *User) {
+	fmt.Printf("Name: %s\n", u.Name)
+	fmt.Printf("Type: %s\n", u.Type)
+	fmt.Printf("Age: %d\n", u.Age)
+	fmt.Printf("vk: %s\n Facebook: %s\n", u.Social.Vkontakte, u.Social.Facebook)
+}
+
 var myStruct struct {
 	name string
-	age int
+	age  int
 }
 
 type Users struct {
@@ -51,5 +58,8 @@ func main() {
 	json.Unmarshal(byteValue, &users)
 	fmt.Println(users)
 	//fmt.Println("In myUser:", myUser, reflect.TypeOf(myUser))
-
+	//PrintUser()
+	for _, user := range users.Users {
+		PrintUser(&user)
+	}
 }
